@@ -1,0 +1,38 @@
+FROM kasmweb/core:1.5.0
+USER root
+
+ENV HOME /home/kasm-default-profile
+ENV STARTUPDIR /dockerstartup
+ENV INST_SCRIPTS $STARTUPDIR/install
+WORKDIR $HOME
+
+######### Customize Container Here ###########
+
+
+# Install Google Chrome
+COPY ./src/ubuntu/install/chrome $INST_SCRIPTS/chrome/
+RUN bash $INST_SCRIPTS/chrome/install_chrome.sh  && rm -rf $INST_SCRIPTS/chrome/
+
+# Enabled Single Application Mode - No desktop environment will be spawned
+ENV SINGLE_APPLICATION=1
+
+# Setup the custom startup script that will be invoked when the container starts
+ENV LAUNCH_URL  http://kasmweb.com
+RUN echo $' \n\
+if [ -n "$LAUNCH_URL" ]; then \n\
+    google-chrome --start-maximized $LAUNCH_URL \n\
+fi \n\
+' >$STARTUPDIR/custom_startup.sh
+
+
+######### End Customizations ###########
+
+RUN chown 1000:0 $HOME
+RUN chown -R 1000:0 $STARTUPDIR
+RUN $STARTUPDIR/set_user_permission.sh $STARTUPDIR $HOME
+
+ENV HOME /home/kasm-user
+WORKDIR $HOME
+RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+
+USER 1000
