@@ -27,4 +27,3 @@ sed -i 's@exec -a "$0" "$HERE/chrome" "$\@"@@g' /usr/bin/x-www-browser
 cat >>/usr/bin/x-www-browser <<EOL
 exec -a "\$0" "\$HERE/chrome" "${CHROME_ARGS}"  "\$@"
 EOL
-
