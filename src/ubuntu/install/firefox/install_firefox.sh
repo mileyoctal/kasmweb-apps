@@ -5,12 +5,16 @@ echo "Install Firefox"
 apt-mark unhold firefox
 apt-get remove firefox
 apt-get update
-apt-get install -y firefox
+apt-get install -y firefox p11-kit-modules
 
 # Plugin to support running flash videos for sites like vimeo
 apt-get install -y browser-plugin-freshplayer-pepperflash
 apt-mark hold firefox
 apt-get clean -y
+
+# Update firefox to utilize the system certificate store instead of the one that ships with firefox
+rm /usr/lib/firefox/libnssckbi.so
+ln /usr/lib/x86_64-linux-gnu/pkcs11/p11-kit-trust.so /usr/lib/firefox/libnssckbi.so
 
 # Disabling default first run URL
 echo "pref(\"datareporting.policy.firstRunURL\", \"\");" >> /usr/lib/firefox/browser/defaults/preferences/firefox.js
