@@ -9,11 +9,11 @@ This repo services as a distribution point for Kasm Server.
 Please see [kasmweb.com](https://www.kasmweb.com) for more details.
 
 
-### UI
-![alt text](img/kasm_dashboard.png "Kasm's UI Dashboard")
+### Kasm Server UI
+![alt text](img/kasm_dashboard.png "Kasm Server UI Dashboard")
 
-### A "Kasm"
-![alt text](img/kasm_desktop.png  "A view of a Kasm")
+### Kasm Sessions
+![alt text](img/kasm_sessions.png  "A view of a Kasm")
 
 
 # Installation
