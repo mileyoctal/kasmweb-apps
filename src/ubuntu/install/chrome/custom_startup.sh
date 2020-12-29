@@ -18,6 +18,7 @@ if [ -n "$URL" ] && ( [ -z "$DISABLE_CUSTOM_STARTUP" ] ||  [ -n "$FORCE" ] ) ; t
         if ! pgrep -x chrome > /dev/null
         then
             /usr/bin/filter_ready
+            /usr/bin/desktop_ready
             google-chrome --start-maximized $URL
         fi
         sleep 1
