@@ -17,6 +17,7 @@ if [ -n "$URL" ] && ( [ -z "$DISABLE_CUSTOM_STARTUP" ] ||  [ -n "$FORCE" ] ) ; t
         if ! pgrep -x firefox > /dev/null
         then
             /usr/bin/filter_ready
+            /usr/bin/desktop_ready
             firefox -width ${VNC_RESOLUTION/x*/} -height ${VNC_RESOLUTION/*x/} $URL
         fi
         sleep 1

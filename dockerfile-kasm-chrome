@@ -1,4 +1,4 @@
-FROM kasmweb/core:1.7.0
+FROM kasmweb/core:1.8.0
 USER root
 
 ENV HOME /home/kasm-default-profile

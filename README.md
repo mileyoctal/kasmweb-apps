@@ -53,3 +53,4 @@ When submitting a ticket, please include the following details so we can assist 
 -   If you are having an issue, please [Submit a Ticket](https://bitbucket.org/kasmtech/kasm_release/issues?status=new&status=open)
 -   Review the [Documentation](https://www.kasmweb.com/docs/latest/index.html)
 -   Visit our main site: [kasmweb.com](https://www.kasmweb.com)
+-   [License](https://kasmweb.com/support/policies/on-premise_end_user_license_agreement.pdf)
